@@ -41,7 +41,7 @@ def frame_rfft(
         np.floor(float(wave_len - overlap_size) / float(step_size)))
     retval = np.zeros(
         (frame_count, int(np.ceil((frame_size + 1) / 2))),
-        dtype=np.complex64)
+        dtype=np.complex128)
     for i in range(frame_count):
         lmost = i * step_size
         rmost = lmost + frame_size
@@ -56,5 +56,5 @@ def sin_wave(
     sample_count: int
 ) -> np.ndarray[np.float64]:
     time_array = np.arange(
-        0, sample_count, dtype=np.float32) * 1.0 / sample_rate
+        0, sample_count, dtype=np.float64) * 1.0 / sample_rate
     return np.sin(2 * np.pi * frequency * time_array)
